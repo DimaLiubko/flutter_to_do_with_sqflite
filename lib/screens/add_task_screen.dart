@@ -68,12 +68,19 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
         task.status = 0;
         DatabaseHelper.instance.insertTask(task);
       } else {
+        task.id = widget.task.id;
         task.status = widget.task.status;
         DatabaseHelper.instance.updateTask(task);
       }
       widget.updateTaskList();
       Navigator.pop(context);
     }
+  }
+
+  _delete() {
+    DatabaseHelper.instance.deleteTask(widget.task.id);
+    widget.updateTaskList();
+    Navigator.pop(context);
   }
 
   @override
@@ -101,7 +108,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     height: 20.0,
                   ),
                   Text(
-                    'Add Task',
+                    widget.task == null ? 'Add Task' : 'Update Task',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 40.0,
@@ -188,11 +195,25 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                         child: ElevatedButton(
                           onPressed: _submit,
                           child: Text(
-                            'Add',
+                            widget.task == null ? 'Add' : 'Update',
                             style: TextStyle(fontSize: 20.0),
                           ),
                         ),
                       ),
+                      widget.task != null
+                          ? Container(
+                              margin: EdgeInsets.symmetric(vertical: 20.0),
+                              height: 60.0,
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                onPressed: _delete,
+                                child: Text(
+                                  'Delete',
+                                  style: TextStyle(fontSize: 20.0),
+                                ),
+                              ),
+                            )
+                          : SizedBox.shrink(),
                     ]),
                   ),
                 ],
