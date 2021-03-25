@@ -1,16 +1,18 @@
-# flutter_to_do_with_sqflite
+# Simple TODO App 
+##### Made with Dart && Flutter
 
-A new Flutter project.
+Dependency:
+ - intl: ^0.17.0
+ - path_provider: ^2.0.1
+ - sqflite: ^2.0.0+3  intl: ^0.17.0
 
-## Getting Started
+Demo screens:
 
-This project is a starting point for a Flutter application.
+TODO Task list
+![image info](./TODO_List.png)
 
-A few resources to get you started if this is your first Flutter project:
+TODO Add task
+![image info](./TODO_Add.png)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+TODO Update task
+![image info](./TODO_Update.png)
